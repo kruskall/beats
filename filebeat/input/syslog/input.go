@@ -40,6 +40,7 @@ import (
 //go:generate ragel -Z -G2 parser/format_check.rl -o format_check.go
 //go:generate goimports -l -w rfc3164_parser.go
 //go:generate goimports -l -w rfc5424_parser.go
+//go:generate goimports -l -w format_check.go
 
 // Severity and Facility are derived from the priority, theses are the human readable terms
 // defined in https://tools.ietf.org/html/rfc3164#section-4.1.1.

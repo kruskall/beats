@@ -18,11 +18,10 @@
 package api
 
 import (
+	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
-
-	"go.uber.org/multierr"
 
 	"github.com/elastic/elastic-agent-libs/config"
 	"github.com/elastic/elastic-agent-libs/logp"
@@ -53,7 +52,7 @@ func NewWithDefaultRoutes(log *logp.Logger, config *config.C, reg LookupFunc) (*
 		return nil, err
 	}
 
-	err = multierr.Combine(
+	err = errors.Join(
 		api.AttachHandler("/", makeRootAPIHandler(makeAPIHandler(reg("info")))),
 		api.AttachHandler("/state", makeAPIHandler(reg("state"))),
 		api.AttachHandler("/stats", makeAPIHandler(reg("stats"))),

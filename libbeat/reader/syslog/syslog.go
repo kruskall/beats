@@ -36,6 +36,8 @@ import (
 //
 //go:generate ragel -Z -G2 -o rfc3164_gen.go parser/parser_rfc3164.rl
 //go:generate ragel -Z -G2 -o rfc5424_gen.go parser/parser_rfc5424.rl
+//go:generate goimports -l -w rfc3164_gen.go
+//go:generate goimports -l -w rfc5424_gen.go
 
 var (
 	// ErrPriority indicates a priority value is outside the acceptable range.

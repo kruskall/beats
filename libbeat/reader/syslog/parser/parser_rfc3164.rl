@@ -2,10 +2,9 @@
 package syslog
 
 import (
+    "errors"
     "io"
     "time"
-
-    "go.uber.org/multierr"
 )
 
 %%{
